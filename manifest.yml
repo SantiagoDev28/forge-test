@@ -1,0 +1,24 @@
+modules:
+  confluence:globalPage:
+    - key: arch-conformance-poc-hello-world-global-page
+      resource: main
+      render: native
+      resolver:
+        function: resolver
+      title: arch-conformance-poc
+      route: hello-world
+  function:
+    - key: resolver
+      handler: index.handler
+resources:
+  - key: main
+    path: src/frontend/index.jsx
+app:
+  runtime:
+    name: nodejs24.x
+    memoryMB: 256
+    architecture: arm64
+  id: ari:cloud:ecosystem::app/6d8af293-8113-48c8-ba0d-858096f79f70
+permissions:
+  scopes:
+  - read:confluence-content.all
